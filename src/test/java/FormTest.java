@@ -9,9 +9,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.Test;
+import org.testng.annotations.*;
 
 import java.time.Duration;
 
@@ -31,10 +29,15 @@ public class FormTest {
         registrationFormPage = new RegistrationFormPage(driver, wait);
     }
 
-    @Test(priority = 1)
-    public void checkRegistrationFormData() {
+    @DataProvider(name = "data-provider")
+    public Object[][] dpMethod(){
+        return new Object[][] {{"Roman"}, {"Sveta"}};
+    }
 
-        registrationFormPage.enterFirstName("Roman");
+    @Test(dataProvider = "data-provider", enabled = false)
+    public void checkRegistrationFormData(String name) {
+
+        registrationFormPage.enterFirstName(name);
         registrationFormPage.enterLastName("Ivanov");
 
         WebElement maleRadioButton = driver.findElement(By.xpath("//label[@for=\"gender-radio-1\"]"));
@@ -58,8 +61,20 @@ public class FormTest {
         Assert.assertTrue(userDataText.getText().contains("Roman Ivanov"));
     }
 
-    @Test(priority = 2)
-    public void checkRegistrationFormData2() {
+    @Test(enabled = true)
+    @Parameters({"lastName"})
+    public void checkRegistrationFormData2(String lastName) {
+
+        registrationFormPage.enterFirstName("Roman");
+        registrationFormPage.enterLastName(lastName);
+
+        WebElement userDataText = driver.findElement(By.xpath("//tr[1]/td[1]/following-sibling::td"));
+
+        Assert.assertTrue(userDataText.getText().contains("Roman Ivanov"));
+    }
+
+    @Test(enabled = false)
+    public void checkRegistrationFormData3() {
 
         registrationFormPage.enterFirstName("Roman");
         registrationFormPage.enterLastName("Ivanov");

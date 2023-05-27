@@ -1,9 +1,22 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 
-<suite name="MainTest">
+<suite name="MainTest" parallel="tests" thread-count="2">
 
-    <test name="FormTest" parallel="false">
 
+    <test name="FormTest">
+        <parameter name="lastName" value="Ivanov" />
+        <classes>
+            <class name="FormTest">
+                <methods>
+                    <include name="checkRegistrationFormData"/>
+                    <include name="checkRegistrationFormData2"/>
+                    <include name="checkRegistrationFormData3"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+    <test name="FormTest2">
         <classes>
             <class name="FormTest">
                 <methods>
@@ -12,7 +25,6 @@
                 </methods>
             </class>
         </classes>
-
     </test>
 
 </suite>
