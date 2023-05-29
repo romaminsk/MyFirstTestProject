@@ -1,31 +1,21 @@
-import io.github.bonigarcia.wdm.WebDriverManager;
+import org.example.driver.DriverManager;
 import org.example.pages.RegistrationFormPage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
-import java.time.Duration;
+public class FormTest extends BaseTest{
 
-public class FormTest {
-
-    private WebDriver driver;
-    private WebDriverWait wait;
+    protected WebDriver driver;
     private RegistrationFormPage registrationFormPage;
 
-    @BeforeMethod
-    public void setUp() {
-        WebDriverManager.chromedriver().setup();
-        driver = new ChromeDriver();
-        driver.manage().window().maximize();
-        wait = new WebDriverWait(driver, Duration.ofSeconds(30));
-        driver.get("https://demoqa.com/automation-practice-form");
-        registrationFormPage = new RegistrationFormPage(driver, wait);
+    @BeforeClass
+    public void preparationForTest() {
+        driver = DriverManager.getDriver();
+        registrationFormPage = new RegistrationFormPage(driver);
     }
 
     @Test()
@@ -42,8 +32,5 @@ public class FormTest {
         Assert.assertTrue(userDataText.getText().contains("Roman Ivanov"));
     }
 
-    @AfterMethod
-    public void tearDown() {
-        driver.quit();
-    }
+
 }
