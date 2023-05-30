@@ -6,9 +6,10 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class RegistrationFormPage {
+public class RegistrationFormPage extends BasePage {
 
-    private WebDriver driver;
+    public RegistrationFormPage (WebDriver driver) {
+    }
 
     @FindBy(id = "firstName")
     private WebElement firstNameField;
@@ -24,11 +25,6 @@ public class RegistrationFormPage {
 
     @FindBy(xpath = "//button[@type='submit']")
     private WebElement submitButton;
-
-    public RegistrationFormPage(WebDriver driver) {
-        PageFactory.initElements(driver, this);
-        this.driver = driver;
-    }
 
     public void enterFirstName(String firstName) {
         Waiters.waitForVisibility(firstNameField);
