@@ -31,7 +31,7 @@ public class RegistrationFormPage {
     }
 
     public void enterFirstName(String firstName) {
-//        Waiters.waitForVisibility(firstNameField);
+        Waiters.waitForVisibility(firstNameField);
         firstNameField.sendKeys(firstName);
     }
 
