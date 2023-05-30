@@ -1,7 +1,6 @@
 package org.example.driver;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
-import org.example.pages.PropertiesReader;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 

@@ -1,4 +1,4 @@
-package org.example.pages;
+package org.example.utils;
 
 import java.io.File;
 import java.io.FileInputStream;
