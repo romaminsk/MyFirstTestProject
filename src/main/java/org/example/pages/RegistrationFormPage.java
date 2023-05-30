@@ -14,10 +14,10 @@ public class RegistrationFormPage {
     private WebDriver driver;
     private WebDriverWait wait;
 
-    private void waitForVisibility(WebElement element) {
-        new WebDriverWait(driver, Duration.ofSeconds(60))
-                .until(ExpectedConditions.visibilityOf(element));
-    }
+//    private void waitForVisibility(WebElement element) {
+//        new WebDriverWait(driver, Duration.ofSeconds(60))
+//                .until(ExpectedConditions.visibilityOf(element));
+//    }
 
     @FindBy(id = "firstName")
     private WebElement firstNameField;
@@ -34,14 +34,13 @@ public class RegistrationFormPage {
     @FindBy(xpath = "//button[@type='submit']")
     private WebElement submitButton;
 
-    public RegistrationFormPage(WebDriver driver, WebDriverWait wait) {
+    public RegistrationFormPage(WebDriver driver) {
         PageFactory.initElements(driver, this);
         this.driver = driver;
-        this.wait = wait;
     }
 
     public void enterFirstName(String firstName) {
-        waitForVisibility(firstNameField);
+//        waitForVisibility(firstNameField);
         firstNameField.sendKeys(firstName);
     }
 
