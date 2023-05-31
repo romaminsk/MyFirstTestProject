@@ -5,23 +5,35 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 public class FormTest extends BaseTest{
 
-    protected WebDriver driver;
-    private RegistrationFormPage registrationFormPage;
+//    protected WebDriver driver;
+//    private RegistrationFormPage registrationFormPage;
 
-    @BeforeClass
-    public void preparationForTest() {
-        driver = DriverManager.getDriver();
-        registrationFormPage = new RegistrationFormPage(driver);
+//    @BeforeClass
+//    public void preparationForTest() {
+//        driver = DriverManager.getDriver();
+//        registrationFormPage = new RegistrationFormPage(driver);
+//    }
+
+    @DataProvider(name = "data-provider")
+    public Object[][] dpMethod(){
+        return new Object[][] {{"Roman"}, {"Ivanov"}};
     }
 
-    @Test()
-    public void checkRegistrationFormData() {
+    @Test(dataProvider = "data-provider")
+    public void checkRegistrationFormData(String name) {
+        WebDriver driver = DriverManager.getDriver();
 
-        registrationFormPage.enterFirstName("Roman");
+        RegistrationFormPage registrationFormPage = new RegistrationFormPage(driver);
+        driver.get("https://demoqa.com/automation-practice-form");
+
+        registrationFormPage = new RegistrationFormPage(driver);
+        registrationFormPage.enterFirstName(name);
         registrationFormPage.enterLastName("Ivanov");
         registrationFormPage.clickMaleRadioButton();
         registrationFormPage.enterMobileNumber("1111111111");
@@ -29,8 +41,7 @@ public class FormTest extends BaseTest{
 
         WebElement userDataText = driver.findElement(By.xpath("//tr[1]/td[1]/following-sibling::td"));
 
-        Assert.assertTrue(userDataText.getText().contains("Roman Ivanov"));
+        Assert.assertTrue(userDataText.getText().contains(name));
     }
-
 
 }
