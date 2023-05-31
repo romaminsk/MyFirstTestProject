@@ -25,6 +25,9 @@ public class RegistrationFormPage {
     @FindBy(xpath = "//button[@type='submit']")
     private WebElement submitButton;
 
+    @FindBy(xpath = "//tr[1]/td[1]/following-sibling::td")
+    WebElement userDataText;
+
     public RegistrationFormPage(WebDriver driver) {
         PageFactory.initElements(driver, this);
         this.driver = driver;
@@ -49,5 +52,9 @@ public class RegistrationFormPage {
 
     public void clickSubmitButton() {
         submitButton.click();
+    }
+
+    public String getUserDataText() {
+        return userDataText.getText();
     }
 }
