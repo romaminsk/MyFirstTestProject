@@ -14,7 +14,7 @@ public class FormTest extends BaseTest {
 
     @DataProvider(name = "data-provider")
     public Object[][] dpMethod() {
-        return new Object[][]{{"Roman"}, {"Ivanov"}};
+        return new Object[][]{{"Roman"}, {"Andrew"}};
     }
 
     @Test(dataProvider = "data-provider")
