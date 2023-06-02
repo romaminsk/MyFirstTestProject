@@ -22,6 +22,14 @@ public class FormTest extends BaseTest {
         registrationFormPage = new RegistrationFormPage(driver);
     }
 
+//    @DataProvider(name = "data-provider")
+//    public Object[][] dpMethod() {
+//        return new Object[][]{
+//                {new UserData("John")},
+//                {new UserData("Anna")}
+//        };
+//    }
+
     @Test(dataProvider = "data-provider")
     public void checkRegistrationFormData(String name) {
         registrationFormPage.enterFirstName(name);
