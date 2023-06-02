@@ -4,9 +4,8 @@ import org.example.utils.WaitUtils;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
 
-public class RegistrationFormPage {
+public class RegistrationFormPage extends BasePage {
 
     private WebDriver driver;
 
@@ -29,8 +28,7 @@ public class RegistrationFormPage {
     WebElement userDataText;
 
     public RegistrationFormPage(WebDriver driver) {
-        PageFactory.initElements(driver, this);
-        this.driver = driver;
+        super(driver);
     }
 
     public void enterFirstName(String firstName) {

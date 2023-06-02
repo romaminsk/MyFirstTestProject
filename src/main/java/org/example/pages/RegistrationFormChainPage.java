@@ -5,10 +5,9 @@ import org.example.utils.WaitUtils;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
 
 @Log4j2
-public class RegistrationFormChainPage {
+public class RegistrationFormChainPage extends BasePage {
 
     private WebDriver driver;
 
@@ -31,8 +30,7 @@ public class RegistrationFormChainPage {
     WebElement userDataText;
 
     public RegistrationFormChainPage(WebDriver driver) {
-        PageFactory.initElements(driver, this);
-        this.driver = driver;
+        super(driver);
     }
 
     public RegistrationFormChainPage enterFirstName(String firstName) {
