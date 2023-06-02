@@ -8,9 +8,9 @@
                     <include name="checkRegistrationFormData"/>
                 </methods>
             </class>
-            <class name="FormTest2">
+            <class name="FormChainTest">
                 <methods>
-                    <include name="checkRegistrationFormData2"/>
+                    <include name="checkRegistrationFormDataChain"/>
                 </methods>
             </class>
         </classes>
