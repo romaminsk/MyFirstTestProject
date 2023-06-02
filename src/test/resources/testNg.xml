@@ -8,6 +8,11 @@
                     <include name="checkRegistrationFormData"/>
                 </methods>
             </class>
+            <class name="FormTest2">
+                <methods>
+                    <include name="checkRegistrationFormData2"/>
+                </methods>
+            </class>
         </classes>
     </test>
 </suite>

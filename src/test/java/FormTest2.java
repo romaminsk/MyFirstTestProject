@@ -6,9 +6,10 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
-public class FormTest extends BaseTest {
+public class FormTest2 extends BaseTest {
 
     protected WebDriver driver;
+
     private RegistrationFormPage registrationFormPage;
 
     @DataProvider(name = "data-provider")
@@ -23,7 +24,7 @@ public class FormTest extends BaseTest {
     }
 
     @Test(dataProvider = "data-provider")
-    public void checkRegistrationFormData(String name) {
+    public void checkRegistrationFormData2(String name) {
         registrationFormPage.enterFirstName(name);
         registrationFormPage.enterLastName("Ivanov");
         registrationFormPage.clickMaleRadioButton();
