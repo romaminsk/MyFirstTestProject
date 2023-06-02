@@ -1,11 +1,13 @@
 package org.example.pages;
 
+import lombok.extern.log4j.Log4j2;
 import org.example.utils.WaitUtils;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+@Log4j2
 public class RegistrationFormChainPage {
 
     private WebDriver driver;
@@ -35,6 +37,7 @@ public class RegistrationFormChainPage {
 
     public RegistrationFormChainPage enterFirstName(String firstName) {
         WaitUtils.waitForVisibility(firstNameField);
+        log.info("Enter first name");
         firstNameField.sendKeys(firstName);
         return this;
     }
