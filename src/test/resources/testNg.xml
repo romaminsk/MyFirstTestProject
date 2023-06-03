@@ -3,9 +3,14 @@
 
     <test name="MainTest" parallel="false">
         <classes>
-            <class name="FormTest">
+<!--            <class name="FormTest">-->
+<!--                <methods>-->
+<!--                    <include name="checkRegistrationFormData"/>-->
+<!--                </methods>-->
+<!--            </class>-->
+            <class name="FormChainTest">
                 <methods>
-                    <include name="checkRegistrationFormData"/>
+                    <include name="checkRegistrationFormDataChain"/>
                 </methods>
             </class>
         </classes>
