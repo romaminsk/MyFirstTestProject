@@ -4,12 +4,10 @@ import org.example.utils.Waiters;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
 
 public class RegistrationFormPage extends BasePage {
 
-    public RegistrationFormPage (WebDriver driver) {
-    }
+    protected WebDriver driver;
 
     @FindBy(id = "firstName")
     private WebElement firstNameField;
@@ -25,6 +23,10 @@ public class RegistrationFormPage extends BasePage {
 
     @FindBy(xpath = "//button[@type='submit']")
     private WebElement submitButton;
+
+    public RegistrationFormPage(WebDriver driver) {
+        super(driver);
+    }
 
     public void enterFirstName(String firstName) {
         Waiters.waitForVisibility(firstNameField);

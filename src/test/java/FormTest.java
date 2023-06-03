@@ -5,6 +5,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 public class FormTest extends BaseTest {
@@ -12,16 +13,21 @@ public class FormTest extends BaseTest {
     protected WebDriver driver;
     private RegistrationFormPage registrationFormPage;
 
+    @DataProvider(name = "data-provider")
+    public Object[][] dpMethod() {
+        return new Object[][]{{"Roman"}, {"Andrew"}};
+    }
+
     @BeforeClass
     public void preparationForTest() {
         driver = DriverManager.getDriver();
         registrationFormPage = new RegistrationFormPage(driver);
     }
 
-    @Test()
-    public void checkRegistrationFormData() {
+    @Test(dataProvider = "data-provider")
+    public void checkRegistrationFormData(String name) {
 
-        registrationFormPage.enterFirstName("Roman");
+        registrationFormPage.enterFirstName(name);
         registrationFormPage.enterLastName("Ivanov");
         registrationFormPage.clickMaleRadioButton();
         registrationFormPage.enterMobileNumber("1111111111");
