@@ -9,5 +9,6 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class UserData {
 
-    String name;
+    String firstName;
+    String lastName;
 }

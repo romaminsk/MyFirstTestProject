@@ -21,8 +21,8 @@ public class FormChainTest extends BaseTest {
     @DataProvider(name = "data-provider")
     public Object[][] dpMethod() {
         return new Object[][]{
-                {new UserData("John")},
-                {new UserData("Anna")}
+                {new UserData("John", "Doe")},
+                {new UserData("Anna", "Petrova")}
         };
     }
 
@@ -30,13 +30,13 @@ public class FormChainTest extends BaseTest {
     public void checkRegistrationFormDataChain(UserData userData) {
 
         String userDataText = registrationFormPage
-                .enterFirstName(userData.getName())
-                .enterLastName("Ivanov")
+                .enterFirstName(userData.getFirstName())
+                .enterLastName(userData.getLastName())
                 .clickMaleRadioButton()
                 .enterMobileNumber("1111111111")
                 .clickSubmitButton()
                 .getUserDataText();
 
-        Assert.assertTrue(userDataText.contains(userData.getName()));
+        Assert.assertTrue(userDataText.contains(userData.getFirstName()));
     }
 }
