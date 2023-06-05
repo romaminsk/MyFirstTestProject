@@ -19,7 +19,7 @@ public class FormTest extends BaseTest {
     @BeforeClass
     public void startPage() {
         driver = DriverManager.getDriver();
-        registrationFormSteps = new RegistrationFormSteps(DriverManager.getDriver());
+        registrationFormSteps = new RegistrationFormSteps(driver);
     }
 
     @Test(dataProvider = "data-provider")
