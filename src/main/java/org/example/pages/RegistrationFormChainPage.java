@@ -41,26 +41,31 @@ public class RegistrationFormChainPage extends BasePage {
     }
 
     public RegistrationFormChainPage enterLastName(String lastName) {
+        log.info("Enter last name");
         lastNameField.sendKeys(lastName);
         return this;
     }
 
     public RegistrationFormChainPage clickMaleRadioButton() {
+        log.info("Click male radio button");
         maleRadioButton.click();
         return this;
     }
 
     public RegistrationFormChainPage enterMobileNumber(String mobileNumber) {
+        log.info("Enter mobile number");
         mobileNumberField.sendKeys(mobileNumber);
         return this;
     }
 
     public RegistrationFormChainPage clickSubmitButton() {
+        log.info("Click submit button");
         submitButton.click();
         return this;
     }
 
     public String getUserDataText() {
+        log.info("Get user data text");
         return userDataText.getText();
     }
 }
