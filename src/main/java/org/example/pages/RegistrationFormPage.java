@@ -1,7 +1,6 @@
 package org.example.pages;
 
 import lombok.extern.log4j.Log4j2;
-import org.example.utils.WaitUtils;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -33,34 +32,27 @@ public class RegistrationFormPage extends BasePage {
         super(driver);
     }
 
-    public void enterFirstName(String firstName) {
-        WaitUtils.waitForVisibility(firstNameField);
-        log.info("Enter first name");
-        firstNameField.sendKeys(firstName);
+    public WebElement getFirstNameField() {
+        return firstNameField;
     }
 
-    public void enterLastName(String lastName) {
-        log.info("Enter last name");
-        lastNameField.sendKeys(lastName);
+    public WebElement getLastNameField() {
+        return lastNameField;
     }
 
-    public void clickMaleRadioButton() {
-        log.info("Click male radio button");
-        maleRadioButton.click();
+    public WebElement getMaleRadioButton() {
+        return maleRadioButton;
     }
 
-    public void enterMobileNumber(String mobileNumber) {
-        log.info("Enter mobile number");
-        mobileNumberField.sendKeys(mobileNumber);
+    public WebElement getMobileNumberField() {
+        return mobileNumberField;
     }
 
-    public void clickSubmitButton() {
-        log.info("Click submit button");
-        submitButton.click();
+    public WebElement getSubmitButton() {
+        return submitButton;
     }
 
-    public String getUserDataText() {
-        log.info("Get user data text");
-        return userDataText.getText();
+    public WebElement getUserDataText() {
+        return userDataText;
     }
 }
