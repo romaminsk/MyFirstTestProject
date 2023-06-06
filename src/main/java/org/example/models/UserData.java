@@ -11,4 +11,5 @@ public class UserData {
 
     String firstName;
     String lastName;
+    String mobileNumber;
 }
