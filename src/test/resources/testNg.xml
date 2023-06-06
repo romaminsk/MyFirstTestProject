@@ -6,7 +6,7 @@
             <class name="FormTest">
                 <methods>
                     <include name="checkRegistrationFormData"/>
-<!--                    <include name="checkRegistrationFormSeparateData"/>-->
+                    <include name="checkRegistrationFormSeparateData"/>
                 </methods>
             </class>
 <!--            <class name="FormChainTest">-->

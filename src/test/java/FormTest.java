@@ -23,7 +23,7 @@ public class FormTest extends BaseTest {
 
         registrationFormSteps.fillForm(userData);
 
-        Assert.assertTrue(registrationFormSteps.getUserDataText().contains("Roman Ivanov"));
+        Assert.assertTrue(registrationFormSteps.getUserDataText().contains(userData.getFirstName()));
     }
 
     @Test(dataProvider = "userData", dataProviderClass = JsonReader.class)
@@ -35,6 +35,6 @@ public class FormTest extends BaseTest {
         registrationFormSteps.enterMobileNumber(userData.getMobileNumber());
         registrationFormSteps.clickSubmitButton();
 
-        Assert.assertTrue(registrationFormSteps.getUserDataText().contains("Roman Ivanov"));
+        Assert.assertTrue(registrationFormSteps.getUserDataText().contains(userData.getFirstName()));
     }
 }
