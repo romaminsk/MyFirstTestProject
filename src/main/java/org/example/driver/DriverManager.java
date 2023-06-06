@@ -24,7 +24,7 @@ public class DriverManager {
         return driver;
     }
 
-    public static void closeDriver() {
+    public static void quitDriver() {
         try {
             driver.quit();
         } catch (Exception e) {
