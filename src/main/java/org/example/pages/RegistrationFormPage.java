@@ -1,10 +1,9 @@
 package org.example.pages;
 
-import org.example.utils.Waiters;
+import lombok.extern.log4j.Log4j2;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import lombok.extern.log4j.Log4j2;
 
 @Log4j2
 public class RegistrationFormPage extends BasePage {
@@ -26,33 +25,34 @@ public class RegistrationFormPage extends BasePage {
     @FindBy(xpath = "//button[@type='submit']")
     private WebElement submitButton;
 
+    @FindBy(xpath = "//tr[1]/td[1]/following-sibling::td")
+    private WebElement userDataText;
+
     public RegistrationFormPage(WebDriver driver) {
         super(driver);
     }
 
-    public void enterFirstName(String firstName) {
-        Waiters.waitForVisibility(firstNameField);
-        log.info("Enter first name");
-        firstNameField.sendKeys(firstName);
+    public WebElement getFirstNameField() {
+        return firstNameField;
     }
 
-    public void enterLastName(String lastName) {
-        log.info("Enter last name");
-        lastNameField.sendKeys(lastName);
+    public WebElement getLastNameField() {
+        return lastNameField;
     }
 
-    public void clickMaleRadioButton() {
-        log.info("Click male radio button");
-        maleRadioButton.click();
+    public WebElement getMaleRadioButton() {
+        return maleRadioButton;
     }
 
-    public void enterMobileNumber(String mobileNumber) {
-        log.info("Enter mobile number");
-        mobileNumberField.sendKeys(mobileNumber);
+    public WebElement getMobileNumberField() {
+        return mobileNumberField;
     }
 
-    public void clickSubmitButton() {
-        log.info("Click submit button");
-        submitButton.click();
+    public WebElement getSubmitButton() {
+        return submitButton;
+    }
+
+    public WebElement getUserDataText() {
+        return userDataText;
     }
 }
