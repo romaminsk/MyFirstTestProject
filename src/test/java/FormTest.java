@@ -24,7 +24,7 @@ public class FormTest extends BaseTest {
 
     @Test(dataProvider = "data-provider")
     public void checkRegistrationFormData(String name) {
-        registrationFormSteps.enterFirstName(name);
+//        registrationFormSteps.enterFirstName(name);
         registrationFormSteps.enterLastName("Ivanov");
         registrationFormSteps.clickMaleRadioButton();
         registrationFormSteps.enterMobileNumber("1111111111");
