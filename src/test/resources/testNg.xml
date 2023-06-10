@@ -1,6 +1,10 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 <suite name="MainTest">
 
+    <listeners>
+        <listener class-name="org.example.utils.AllureListener"></listener>
+    </listeners>
+
     <test name="MainTest" parallel="false">
         <classes>
             <class name="FormTest">
@@ -9,11 +13,11 @@
                     <include name="checkRegistrationFormSeparateData"/>
                 </methods>
             </class>
-<!--            <class name="FormChainTest">-->
-<!--                <methods>-->
-<!--                    <include name="checkRegistrationFormDataChain"/>-->
-<!--                </methods>-->
-<!--            </class>-->
+            <class name="FormChainTest">
+                <methods>
+                    <include name="checkRegistrationFormDataChain"/>
+                </methods>
+            </class>
         </classes>
     </test>
 </suite>

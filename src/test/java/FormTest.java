@@ -29,7 +29,7 @@ public class FormTest extends BaseTest {
     @Test(dataProvider = "userData", dataProviderClass = JsonReader.class)
     public void checkRegistrationFormSeparateData(UserData userData) {
 
-        registrationFormSteps.enterFirstName(userData.getFirstName());
+//        registrationFormSteps.enterFirstName(userData.getFirstName());
         registrationFormSteps.enterLastName(userData.getLastName());
         registrationFormSteps.clickMaleRadioButton();
         registrationFormSteps.enterMobileNumber(userData.getMobileNumber());
